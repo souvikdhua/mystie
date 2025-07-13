@@ -1,3 +1,6 @@
+### **HTML (`index.html`)**
+
+```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -104,7 +107,7 @@
                         </div>
                     </div>
                     <div class="group relative flex-shrink-0 w-full max-w-xl aspect-video overflow-hidden rounded-lg">
-                        <img src="https://placehold.co/1280x720/0f0f0f/dddddd?text=Celestial+Bodies" alt="Gallery image 4" class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110">
+                        <img src="https://placehold.co/1280x720/0f0f0f/dddddd?text=Celestial+Bodies" alt="Gallery image 4" class="w-full h--full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110">
                         <div class="gallery-item-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out flex flex-col justify-end p-8">
                             <h3 class="text-2xl font-semibold text-white">Celestial Bodies</h3>
                             <p class="text-gray-300 mt-1">Abstract astrophotography.</p>
@@ -114,6 +117,16 @@
             </div>
         </section>
 
+        <section id="soundscapes" class="py-20 md:py-32 bg-[#111111] animate-on-scroll">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center mb-12">
+                     <h2 class="text-3xl md:text-4xl text-white">Soundscapes</h2>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/user/1?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
         <section id="dream-engine" class="py-20 md:py-32 animate-on-scroll">
             <div class="container mx-auto px-6">
                 <div class="max-w-2xl mx-auto text-center">
@@ -163,7 +176,7 @@
     <footer class="border-t border-gray-800/50 relative z-10">
         <div class="container mx-auto px-6 py-6">
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-                <p class="text-gray-500">&copy; 2025 brushenom</p>
+                <p class="text-gray-500">© 2025 brushenom</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
                     <a href="https://twitter.com/brushenom" target="_blank" class="text-gray-500 hover:text-white transition-colors">Twitter</a>
                     <a href="https://instagram.com/brushenom" target="_blank" class="text-gray-500 hover:text-white transition-colors">Instagram</a>
@@ -176,13 +189,19 @@
     <div id="graffiti-popup" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden items-center justify-center p-4">
         <div class="popup-gradient-border rounded-lg transform -rotate-2">
             <div class="bg-gray-900/80 backdrop-blur-sm rounded-lg p-8 w-full max-w-md text-center relative overflow-hidden">
-                <button id="close-popup-btn" class="absolute -top-4 -right-4 text-black bg-lime-400 rounded-full h-10 w-10 flex items-center justify-center text-2xl hover:bg-lime-300 transition-colors z-20">&times;</button>
+                <button id="close-popup-btn" class="absolute -top-4 -right-4 text-black bg-lime-400 rounded-full h-10 w-10 flex items-center justify-center text-2xl hover:bg-lime-300 transition-colors z-20">×</button>
                 <h2 class="hero-font text-5xl mb-4 text-cyan-400">Create.</h2>
                 <p class="graffiti-font text-lg text-lime-400 mb-6">Let's bend reality. Let's make something beautifully strange.</p>
                 <a href="#contact" id="popup-contact-link" class="mt-4 inline-block bg-fuchsia-500 text-white font-bold px-10 py-3 rounded-md hover:bg-fuchsia-400 transition-all transform hover:scale-110 -rotate-1">Enter the Void</a>
             </div>
         </div>
     </div>
+    
+    <script src="main.js"></script>
+
+</body>
+</html>
+```
     
     <script src="main.js"></script>
 
