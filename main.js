@@ -26,23 +26,32 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const photos = await response.json();
 
-            galleryContainer.innerHTML = ''; 
+            // --- THIS IS THE FIX ---
+            // First, check if we actually got an array with photos in it.
+            if (Array.isArray(photos) && photos.length > 0) {
+                
+                // Only clear the gallery AFTER we confirm we have new images.
+                galleryContainer.innerHTML = ''; 
 
-            photos.forEach(photo => {
-                const title = photo.alt_description || 'Untitled';
-                const author = photo.user.name || 'Unknown Artist';
+                photos.forEach(photo => {
+                    const title = photo.alt_description || 'Untitled';
+                    const author = photo.user.name || 'Unknown Artist';
 
-                const galleryItem = `
-                    <div class="group relative flex-shrink-0 w-full max-w-xl aspect-video overflow-hidden rounded-lg">
-                        <img src="${photo.urls.regular}" alt="${title}" class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110">
-                        <div class="gallery-item-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out flex flex-col justify-end p-8">
-                            <h3 class="text-2xl font-semibold text-white capitalize">${title}</h3>
-                            <p class="text-gray-300 mt-1">Photo by ${author}</p>
+                    const galleryItem = `
+                        <div class="group relative flex-shrink-0 w-full max-w-xl aspect-video overflow-hidden rounded-lg">
+                            <img src="${photo.urls.regular}" alt="${title}" class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110">
+                            <div class="gallery-item-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out flex flex-col justify-end p-8">
+                                <h3 class="text-2xl font-semibold text-white capitalize">${title}</h3>
+                                <p class="text-gray-300 mt-1">Photo by ${author}</p>
+                            </div>
                         </div>
-                    </div>
-                `;
-                galleryContainer.insertAdjacentHTML('beforeend', galleryItem);
-            });
+                    `;
+                    galleryContainer.insertAdjacentHTML('beforeend', galleryItem);
+                });
+            } else {
+                // If Unsplash returns an empty array, throw an error to be displayed.
+                throw new Error("No photos were found for this query.");
+            }
 
         } catch (error) {
             console.error("Error loading Unsplash gallery:", error);
