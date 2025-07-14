@@ -1,8 +1,8 @@
- Custom styles for the page */
+/* Custom styles for the page */
 body {
     font-family: 'Bai Jamjuree', sans-serif;
-    background-color: #0a0a0a; /* Black background */
-    color: #e5e5e5; /* Light text color */
+    background-color: #0a0a0a;
+    color: #e5e5e5;
     overflow-x: hidden;
 }
 
@@ -11,6 +11,8 @@ body {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
     font-style: italic;
+    text-shadow: 0 2px 24px #a78bfa88, 0 1px 0 #fff2;
+    letter-spacing: 0.04em;
 }
 
 h2 {
@@ -80,7 +82,7 @@ h2 {
 /* Scroll Animation Classes with refined easing */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(20px); /* Reduced distance */
+    transform: translateY(20px);
     transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .animate-on-scroll.is-visible {
@@ -103,11 +105,11 @@ h2 {
 
 /* Gallery Styles */
 .gallery-container {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 .gallery-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
 }
 .gallery-item-overlay {
     background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
@@ -119,12 +121,14 @@ h2 {
 }
 
 /* Glassmorphism for popups and overlays */
-.bg-glass, .bg-gray-900\/80, .backdrop-blur-sm {
+.bg-glass, .backdrop-blur-sm {
     background: rgba(24, 24, 32, 0.7);
     backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.18);
+    position: relative; /* ensure pseudo-element positioning */
 }
 
 /* Gradient border for premium look */
@@ -147,14 +151,14 @@ h2 {
 }
 
 /* Enhanced button styles */
-button, .btn, .form-input[type="submit"] {
+button, .btn, input.form-input[type="submit"] {
     transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
     box-shadow: 0 2px 8px 0 rgba(167, 139, 250, 0.12);
     border-radius: 12px;
     font-weight: 600;
     letter-spacing: 0.04em;
 }
-button:hover, .btn:hover, .form-input[type="submit"]:hover {
+button:hover, .btn:hover, input.form-input[type="submit"]:hover {
     transform: translateY(-2px) scale(1.04);
     box-shadow: 0 6px 24px 0 rgba(167, 139, 250, 0.18);
     background: linear-gradient(90deg, #a78bfa, #f472b6);
@@ -181,12 +185,6 @@ button:hover, .btn:hover, .form-input[type="submit"]:hover {
 [data-animate]:hover {
     transform: scale(1.03) rotate(-1deg);
     box-shadow: 0 8px 32px 0 rgba(167, 139, 250, 0.18);
-}
-
-/* Animated accent for hero text */
-.hero-font {
-    text-shadow: 0 2px 24px #a78bfa88, 0 1px 0 #fff2;
-    letter-spacing: 0.04em;
 }
 
 /* Responsive improvements */
