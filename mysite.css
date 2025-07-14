@@ -1,4 +1,4 @@
-/* Custom styles for the page */
+ Custom styles for the page */
 body {
     font-family: 'Bai Jamjuree', sans-serif;
     background-color: #0a0a0a; /* Black background */
@@ -116,4 +116,98 @@ h2 {
 /* Hero Text Scroll Animation */
 .hero-text-part {
     transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Glassmorphism for popups and overlays */
+.bg-glass, .bg-gray-900\/80, .backdrop-blur-sm {
+    background: rgba(24, 24, 32, 0.7);
+    backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Gradient border for premium look */
+.premium-gradient-border {
+    background: linear-gradient(90deg, #a78bfa, #f472b6, #38bdf8, #a78bfa);
+    background-size: 300% 300%;
+    animation: border-gradient-move 8s ease infinite;
+    padding: 2px;
+    border-radius: 18px;
+}
+@keyframes border-gradient-move {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Soft drop shadow for depth */
+.shadow-2xl {
+    box-shadow: 0 12px 48px 0 rgba(80, 80, 120, 0.25), 0 1.5px 4px 0 rgba(0,0,0,0.12);
+}
+
+/* Enhanced button styles */
+button, .btn, .form-input[type="submit"] {
+    transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 2px 8px 0 rgba(167, 139, 250, 0.12);
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+button:hover, .btn:hover, .form-input[type="submit"]:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 24px 0 rgba(167, 139, 250, 0.18);
+    background: linear-gradient(90deg, #a78bfa, #f472b6);
+    color: #fff;
+}
+
+/* Enhanced input styles */
+.form-input {
+    background: rgba(24, 24, 32, 0.7);
+    border: 1.5px solid #a78bfa;
+    color: #fff;
+    border-radius: 10px;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+.form-input:focus {
+    border-color: #f472b6;
+    box-shadow: 0 0 0 2px #a78bfa44;
+}
+
+/* Micro-interaction transitions */
+[data-animate] {
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+[data-animate]:hover {
+    transform: scale(1.03) rotate(-1deg);
+    box-shadow: 0 8px 32px 0 rgba(167, 139, 250, 0.18);
+}
+
+/* Animated accent for hero text */
+.hero-font {
+    text-shadow: 0 2px 24px #a78bfa88, 0 1px 0 #fff2;
+    letter-spacing: 0.04em;
+}
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+    .hero-font { font-size: 2.5rem !important; }
+    .gallery-container { gap: 1.5rem; }
+    .popup-gradient-border { padding: 2px; }
+}
+
+/* Subtle animated accent for overlays */
+.bg-glass::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    pointer-events: none;
+    background: linear-gradient(120deg, rgba(167,139,250,0.08) 0%, rgba(236,72,153,0.08) 100%);
+    z-index: 1;
+    animation: glass-accent-move 12s linear infinite;
+}
+@keyframes glass-accent-move {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
 }
